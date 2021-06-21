@@ -1,0 +1,29 @@
+.headers{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+.headers .card{
+    text-align: center;
+}
+.headers h3{
+    font-size: 30px;
+}
+.headers h4{
+    font-size: 20px;
+}
+.headers h5{
+    font-size: 15px;
+}
+.headers h6{
+    font-size: 15px;
+}
+.infected{
+    border-bottom: 10px solid rgba(0, 0, 255, 0.5 );
+}
+.recovered{
+    border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+}
+.death{
+    border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+}
