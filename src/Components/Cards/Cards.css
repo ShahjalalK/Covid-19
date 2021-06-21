@@ -1,29 +1,46 @@
-.headers{
+.cardsarea{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0.5rem;
 }
-.headers .card{
+@media screen and (max-width: 991px){
+    .cardsarea{
+        grid-template-columns: 1fr;
+    }
+}
+.cardsarea .card{
     text-align: center;
+    align-items: center;
 }
-.headers h3{
-    font-size: 30px;
+.cardsarea .card h3{
+    font-size: 25px;
+    margin-bottom: 5px;
+    font-weight: 600;
 }
-.headers h4{
-    font-size: 20px;
+.cardsarea .card p:nth-child(2){
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #222;
 }
-.headers h5{
+.cardsarea .card p:nth-child(3){
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.cardsarea .card p:nth-child(4){
     font-size: 15px;
 }
-.headers h6{
-    font-size: 15px;
+
+.infected {
+    border-top: 5px solid rgba(0, 0, 255, 0.5);
+  border-bottom: 10px solid rgba(0, 0, 255, 0.5);
 }
-.infected{
-    border-bottom: 10px solid rgba(0, 0, 255, 0.5 );
-}
+
 .recovered{
-    border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+    border-top: 5px solid rgba(0, 255, 0, 0.5);
+  border-bottom: 10px solid rgba(0, 255, 0, 0.5);
 }
-.death{
-    border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+
+.deaths{
+    border-top: 5px solid rgba(255, 0, 0, 0.5);
+  border-bottom: 10px solid rgba(255, 0, 0, 0.5);
 }

@@ -1,60 +1,38 @@
-import './App.css';
+import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form } from 'react-bootstrap'
-import { Cards, Carts, CuntryPicker } from './Components/Index'
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import './App.css'
+import { FatchApi } from './Components/Api/Index'
+import { Cards, Charts } from './Components/Index'
 
-function App() {
-
+export const App = () => {
   const [Data, setData] = useState([])
-
-  const featchData = async () => {
-    try {
-      const { data: { confirmed, recovered, deaths, lastUpdate } } = await axios.get('https://covid19.mathdro.id/api')
-      const response = { confirmed, recovered, deaths, lastUpdate }
-      setData(response)
-    }
-    catch (error) {
-      console.log(error)
-    }
-  }
-
-  useEffect(() => {
-    featchData()
+  useEffect(async () => {
+    const Api = await FatchApi()
+    setData(Api)
   }, [])
 
 
   return (
-    <div className="App">
+    <>
       <div className="container">
-        <div className="title">
-          <div className="row">
-            <div className="col-md-6">
-              <h1 className="text-left">Covid Tracker App</h1>
-            </div>
-            <div className="col-md-6">
-
-            </div>
+        <div className="row align-items-center">
+          <div className="col-md-8">
+            <Cards Data={Data} />
+          </div>
+          <div className="col-md-4">
+            <h1>Country Picker</h1>
           </div>
         </div>
-        <div className="covid-card">
-          <div className="row">
-            <div className="col-md-8">
-              <Cards Data={Data} />
+        <div className="row justify-content-center">
+          <div className="col-md-12 mt-5">
+            <div className="Chart-title mb-3">
+              <h2 className="text-center">CountryPicker</h2>
             </div>
-            <div className="col-md-4">
-              
-            </div>
+            <Charts />
           </div>
         </div>
-        
-        
       </div>
-      <Carts />
-      
-    </div>
-  );
+    </>
+  )
 }
 
-export default App;
